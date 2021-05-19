@@ -2,7 +2,9 @@ package com.example.first_app.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable {
 
     @JsonProperty("id")
     private int id;
