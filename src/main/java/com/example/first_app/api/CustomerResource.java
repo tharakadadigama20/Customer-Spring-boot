@@ -3,6 +3,8 @@ package com.example.first_app.api;
 import com.example.first_app.model.Customer;
 import com.example.first_app.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -42,10 +44,13 @@ public class CustomerResource {
 
     @DeleteMapping(value = "/{id}")
     public Map deleteCustomer(@PathVariable("id") int id){
+//    public ResponseEntity<String> deleteCustomer(@PathVariable("id") int id){
         service.deleteCustomer(id);
         Map<String, Object> map = new HashMap<>();
-        map.put("Status", true);
+        map.put("status", true);
+        map.put("message","Deleted");
         return map;
+//        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
